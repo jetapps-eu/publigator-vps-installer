@@ -5,5 +5,5 @@ curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/ma
 ```
 
 ```
-curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-steps.sh && bash publigator-install-step2.sh
+curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-step2.sh && bash publigator-install-step2.sh
 ```
