@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-First you need a VPS with minimum 512MB RAM and 20GB disk drive with `CentOS 6.x minimal` installed.
+First you need a VPS with minimum 512MB RAM and 20GB disk drive with `CentOS 6.x minimal` installed. You can order VPS from [DigitalOcean.com](https://www.digitalocean.com/?refcode=3c24a8cd4995) with these parameters just for $5 per month!
 
 Also you should have the domain, ex. yourdomain.com with set DNS records for VPS Hostname and for domain/subdomain for Publigator. So if your domain is yourdomain.com you need to create `A` records in your domains manager:
 
