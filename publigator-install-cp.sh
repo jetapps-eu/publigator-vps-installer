@@ -7,15 +7,6 @@ source "$CONFIGPATH/publigator-config.sh"
 cd $INSTALLDIR
 # ===========================================
 
-# Check wget
-if [ ! -e '/usr/bin/wget' ]; then
-    yum -y install wget
-    if [ $? -ne 0 ]; then
-        echo "Error: can't install wget"
-        exit 1
-    fi
-fi
-
 # Add EPEL repo
 wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm -O epel-release-6-8.noarch.rpm
 rpm -ivh epel-release-6-8.noarch.rpm

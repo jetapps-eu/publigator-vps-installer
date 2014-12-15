@@ -40,6 +40,15 @@ rm -rf $INSTALLDIR
 mkdir $INSTALLDIR
 cd $INSTALLDIR
 
+# Check wget
+if [ ! -e '/usr/bin/wget' ]; then
+    yum -y install wget
+    if [ $? -ne 0 ]; then
+        echo "Error: can't install wget"
+        exit 1
+    fi
+fi
+
 wget "$WEBSOURCE/create-swapfile.sh" -O create-swapfile.sh
 bash create-swapfile.sh
 
