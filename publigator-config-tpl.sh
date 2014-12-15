@@ -5,15 +5,15 @@ CURRENTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 INSTALLDIR="$CURRENTDIR/publigator-installer"
 WEBSOURCE='https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master'
 
-SERVNAME='{HOSTNAME}'
-EMAIL='{EMAIL}'
+SERVNAME='__HOSTNAME__'
+EMAIL='__EMAIL__'
 
-DOMAIN='{DOMAIN}'
-DOMAINIP='{DOMAINIP}'
+DOMAIN='__DOMAIN__'
+DOMAINIP='__DOMAINIP__'
 
-DATABASE='{DATABASE}'
-DATABASE_USER='{DATABASE_USER}'
-DATABASE_PASSWORD='{DATABASE_PASSWORD}'
+DATABASE='__DATABASE__'
+DATABASE_USER='__DATABASE_USER__'
+DATABASE_PASSWORD='__DATABASE_PASSWORD__'
 # ===========================================
 
 # Check server type

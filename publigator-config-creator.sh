@@ -58,15 +58,15 @@ fi
 
 # sed -i "s#;{TPL}#$var#g" publigator-config.sh
 
-sed -i 's#{HOSTNAME}#'${hostname}'#g' "$CONFIGPATH/publigator-config.sh"
-sed -i 's#{EMAIL}#'${email}'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i "s#__HOSTNAME__#${hostname}#g" "$CONFIGPATH/publigator-config.sh"
+sed -i "s#__EMAIL__#${email}#g" "$CONFIGPATH/publigator-config.sh"
 
-sed -i 's#{DOMAIN}#'${domain}'#g' "$CONFIGPATH/publigator-config.sh"
-sed -i 's#{DOMAINIP}#'${domainip}'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i "s#__DOMAIN__#${domain}#g" "$CONFIGPATH/publigator-config.sh"
+sed -i "s#__DOMAINIP__#${domainip}#g" "$CONFIGPATH/publigator-config.sh"
 
-sed -i 's#{DATABASE}#'${database}'#g' "$CONFIGPATH/publigator-config.sh"
-sed -i 's#{DATABASE_USER}#'${database_user}'#g' "$CONFIGPATH/publigator-config.sh"
-sed -i 's#{DATABASE_PASSWORD}#'${database_password}'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i "s#__DATABASE__#${database}#g" "$CONFIGPATH/publigator-config.sh"
+sed -i "s#__DATABASE_USER__#${database_user}#g" "$CONFIGPATH/publigator-config.sh"
+sed -i "s#__DATABASE_PASSWORD__#${database_password}#g" "$CONFIGPATH/publigator-config.sh"
 
 
 printf '\n\nConfiguration created!\n\n'
