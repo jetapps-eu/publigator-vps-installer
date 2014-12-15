@@ -1,4 +1,4 @@
-# Publigator installed script for clean VPS with CentOS 6
+# Publigator installer script for clean VPS with CentOS 6
 
 ## Prerequisites
 
