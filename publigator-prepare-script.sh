@@ -37,7 +37,7 @@ v-change-user-package admin suphp
 v-delete-domain admin default.domain
 
 # add new domain for Publigator (with IP and restart-web)
-v-add-web-domain admin $DOMAIN $DOMAINIP yes
+v-add-web-domain admin "$DOMAIN" "$DOMAINIP" yes
 
 # move old public_html to public_html.orig
 mv "/home/admin/web/$DOMAIN/public_html" "/home/admin/web/$DOMAIN/public_html.orig"
@@ -53,7 +53,7 @@ v-delete-database admin admin_default
 v-add-database admin "$DATABASE" "$DATABASE_USER" "$DATABASE_PASSWORD"
 
 # mysql config for microserver
-# wget http://dist.publigator.com/centos-6.x-installer/my-micro.cnf
+# wget "$WEBSOURCE/my-micro.cnf"
 # mv -f my-micro.cnf /etc/my.cnf
 
 # Import dump...

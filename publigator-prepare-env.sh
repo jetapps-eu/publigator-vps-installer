@@ -103,7 +103,7 @@ sed -i 's#; max_input_vars = [[:digit:]]*#max_input_vars = 10000#g' /etc/php.ini
 sed -i 's#upload_max_filesize = [[:alnum:]]*#upload_max_filesize = 32M#g' /etc/php.ini
 
 # additional ngixn config about timeouts and other limits
-wget http://dist.publigator.com/centos-6.x-installer/nginx.conf -O nginx.conf
+wget "$WEBSOURCE/nginx.conf" -O nginx.conf
 cp nginx.conf "/home/admin/conf/web/nginx.$DOMAIN.conf.limits"
 cp nginx.conf "/home/admin/conf/web/snginx.$DOMAIN.conf.limits"
 

@@ -31,7 +31,7 @@ cd suphp-0.7.1
 ./configure --quiet --prefix=/usr --sysconfdir=/etc --with-apr=/usr/bin/apr-1-config --with-apxs=/usr/sbin/apxs --with-apache-user=apache --with-setid-mode=paranoid --with-php=/usr/bin/php-cgi --with-logfile=/var/log/httpd/suphp_log --enable-SUPHP_USE_USERGROUP=yes
 make -j12 && make install
 
-wget http://dist.publigator.com/centos-6.x-installer/suphp/suphp.conf -O /etc/suphp.conf
+wget "$WEBSOURCE/suphp/suphp.conf" -O /etc/suphp.conf
 sed -i 's#;x-httpd-php54="php:/opt/php54/bin/php-cgi"#x-httpd-php54="php:/usr/bin/php-cgi"#g' /etc/suphp.conf
 
 if [ `uname -m` == "x86_64" ]; then archlib="lib64"; else archlib="lib"; fi
