@@ -39,6 +39,9 @@ v-delete-domain admin default.domain
 # add new domain for Publigator (with IP and restart-web)
 v-add-web-domain admin "$DOMAIN" "$DOMAINIP" yes
 
+v-add-web-domain-proxy admin "$DOMAIN" suphp
+v-restart-web
+
 # move old public_html to public_html.orig
 mv "/home/admin/web/$DOMAIN/public_html" "/home/admin/web/$DOMAIN/public_html.orig"
 
