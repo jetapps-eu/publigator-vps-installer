@@ -11,7 +11,7 @@ serv.yourdomain.com A 14400 1.2.3.4
 publigator.yourdomain.com A 14400 1.2.3.4
 ```
 
-Where is 1.2.3.4 the IP of your VPS. If you plan to use the dedicated domain for the script, you don’t need to create DNS record for the subdomain.
+Where is `1.2.3.4` the IP of your VPS. If you plan to use the dedicated domain for the script, you don’t need to create DNS record for the subdomain.
 
 So if you call `dig serv.yourdomain.com` you should see the IP of your VPS.
 
@@ -25,11 +25,11 @@ Copy and run next command:
 curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-step1.sh && bash publigator-install-step1.sh
 ```
 
-The installed will ask you about your e-mail for send you access info for VestaCP control panel, which will be installed.
+The installed will ask you about your e-mail for send you access info for [VestaCP](http://vestacp.com) control panel, which will be installed.
 
 Also it will ask you about hostname, about domain for Publigator, IP of the VPS, credentials for the DB.
 
-When step-1 will finished, copy next command and run: 
+When `step-1` will finished, copy next command and run: 
 
 ```
 curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-step2.sh && bash publigator-install-step2.sh
