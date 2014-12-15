@@ -73,4 +73,4 @@ yum -y groupinstall "Development Tools"
 
 # Install VestaCP
 wget http://vestacp.com/pub/vst-install.sh -O vst-install.sh
-bash vst-install.sh -f --hostname "$HOSTNAME" --email "$EMAIL"
+bash vst-install.sh -f --hostname "$SERVNAME" --email "$EMAIL"

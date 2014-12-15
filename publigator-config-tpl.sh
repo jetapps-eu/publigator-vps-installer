@@ -3,9 +3,9 @@
 # ===========================================
 CURRENTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 INSTALLDIR="$CURRENTDIR/publigator-installer"
-WEBSOURCE='http://dist.publigator.com/centos-6.x-installer'
+WEBSOURCE='https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master'
 
-HOSTNAME='{HOSTNAME}'
+SERVNAME='{HOSTNAME}'
 EMAIL='{EMAIL}'
 
 DOMAIN='{DOMAIN}'
