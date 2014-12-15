@@ -1,7 +1,5 @@
 #!/bin/bash
 
-WEBSOURCE='http://dist.publigator.com/centos-6.x-installer'
-
 # Publigator based on VestaCP installer for clean CentOS >= 6.x < 7.0
 # ===========================================
 CONFIGPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

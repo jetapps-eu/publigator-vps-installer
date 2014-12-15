@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WEBSOURCE='http://dist.publigator.com/centos-6.x-installer'
+WEBSOURCE='https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master'
 
 # copy config
 curl -O "$WEBSOURCE/publigator-config-tpl.sh"
