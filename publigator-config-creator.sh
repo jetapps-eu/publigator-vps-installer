@@ -6,7 +6,7 @@ CONFIGPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 gen_pass() {
     MATRIX='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     LENGTH=10
-    while [ ${n:=1} -le $LENGTH ]; do
+    while [ ${n:=1} -le ${LENGTH} ]; do
         PASS="$PASS${MATRIX:$(($RANDOM%${#MATRIX})):1}"
         let n+=1
     done
@@ -24,7 +24,12 @@ if [ -z "$hostname" ]; then
 fi
 
 # Define domain
-read -p 'Please enter domain which will be created: ' domain
+read -p 'Please enter domain (FQDN) which will be created (ex. publigator.example.com): ' domain
+
+if [ -z "$domain" ]; then
+    echo "Error: domain must be specified!"
+    exit 1
+fi
 
 # Define domain IP
 read -p "Please enter domain IP [$(hostname -i)]: " domainip
@@ -53,15 +58,15 @@ fi
 
 # sed -i "s#;{TPL}#$var#g" publigator-config.sh
 
-sed -i 's#{HOSTNAME}#'$hostname'#g' "$CONFIGPATH/publigator-config.sh"
-sed -i 's#{EMAIL}#'$email'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i 's#{HOSTNAME}#'${hostname}'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i 's#{EMAIL}#'${email}'#g' "$CONFIGPATH/publigator-config.sh"
 
-sed -i 's#{DOMAIN}#'$domain'#g' "$CONFIGPATH/publigator-config.sh"
-sed -i 's#{DOMAINIP}#'$domainip'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i 's#{DOMAIN}#'${domain}'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i 's#{DOMAINIP}#'${domainip}'#g' "$CONFIGPATH/publigator-config.sh"
 
-sed -i 's#{DATABASE}#'$database'#g' "$CONFIGPATH/publigator-config.sh"
-sed -i 's#{DATABASE_USER}#'$database_user'#g' "$CONFIGPATH/publigator-config.sh"
-sed -i 's#{DATABASE_PASSWORD}#'$database_password'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i 's#{DATABASE}#'${database}'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i 's#{DATABASE_USER}#'${database_user}'#g' "$CONFIGPATH/publigator-config.sh"
+sed -i 's#{DATABASE_PASSWORD}#'${database_password}'#g' "$CONFIGPATH/publigator-config.sh"
 
 
 printf '\n\nConfiguration created!\n\n'
