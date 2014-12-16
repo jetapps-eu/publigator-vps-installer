@@ -2,7 +2,9 @@
 
 ## Prerequisites
 
-First you need a VPS with minimum 512MB RAM and 20GB disk drive with `CentOS 6.x minimal` installed. You can order VPS from [DigitalOcean.com](https://www.digitalocean.com/?refcode=3c24a8cd4995) with these parameters just for $5 per month! (**If you would use a VPS provided by firstvds.ru, don’t select OpenVZ virtualization! Select KVM instead of that (a bit expensive). In other case you will can’t create a swap file!**)
+First you need a VPS with minimum 512MB RAM and 20GB disk drive with `CentOS 6.x minimal` installed. You can order VPS from [DigitalOcean.com](https://www.digitalocean.com/?refcode=3c24a8cd4995) with these parameters just for $5 per month!
+
+**If you would use a VPS provided by firstvds.ru, don’t select OpenVZ virtualization! Select KVM instead of that (a bit expensive). In other case you will can’t create a swap file!**
 
 Also you should have the domain, ex. yourdomain.com with set DNS records for VPS Hostname and for domain/subdomain for Publigator. So if your domain is yourdomain.com you need to create `A` records in your domains manager:
 
