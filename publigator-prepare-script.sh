@@ -61,6 +61,11 @@ v-add-database admin "$DATABASE" "$DATABASE_USER" "$DATABASE_PASSWORD"
 
 # Import dump...
 #
+#wait_timeout=1800
+#max_allowed_packet=64M
+
+# need for long php-cli runs
+sed -i 's#wait_timeout=[[:digit:]]*#wait_timeout=1800#g' /etc/my.cnf
 
 sleep 5
 
