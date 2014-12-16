@@ -62,6 +62,10 @@ yum -y groupinstall "Development Tools"
 #bash vst-install-rhel -f -n -e youmail@yourmail.com
 #bash vst-install-rhel.sh
 
+# remove httpd and bind
+yum -y remove httpd* bind*
+rm -rf /etc/httpd
+
 # Install VestaCP
 wget http://vestacp.com/pub/vst-install.sh -O vst-install.sh
 bash vst-install.sh -f --hostname "$SERVNAME" --email "$EMAIL"
