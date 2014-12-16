@@ -33,6 +33,9 @@ echo "Database admin_$DATABASE"
 echo "Database user admin_$DATABASE_USER"
 echo "Database user password $DATABASE_PASSWORD"
 
+echo
+echo
+
 read -p 'Please check the information doubly. If an error, press CTRL+C and start again.'
 
 printf "\nInstallation step will take about 15 minutes ...\n\n"
