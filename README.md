@@ -41,9 +41,9 @@ Next you will see URL and database credentials. Copy it and go to showed URL. Yo
 
 ## Issues
 
-1. Wrong /etc/resolv.conf on firstvds.ru VPS images. You should change that file:
+1. Wrong /etc/resolv.conf on firstvds.ru VPS images. You should change that file (also see [Vim cheatsheet](http://vim.rtorr.com/) ):
 ```
-nano /etc/resolv.conf
+vi /etc/resolv.conf
 comment out line starting with ‘server’
 ```
 Example:
