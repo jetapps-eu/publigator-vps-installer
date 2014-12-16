@@ -27,11 +27,11 @@ echo "Install directory: $INSTALLDIR"
 echo "Domain: $DOMAIN"
 echo "Domain IP: $DOMAINIP"
 echo "Email: $EMAIL"
-echo "Hostname $HOSTNAME"
+echo "Hostname: $HOSTNAME"
 
-echo "Database admin_$DATABASE"
-echo "Database user admin_$DATABASE_USER"
-echo "Database user password $DATABASE_PASSWORD"
+echo "Database: admin_$DATABASE"
+echo "Database user: admin_$DATABASE_USER"
+echo "Database user password: $DATABASE_PASSWORD"
 
 echo
 echo
