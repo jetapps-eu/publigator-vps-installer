@@ -107,6 +107,7 @@ sed -i 's#upload_max_filesize = [[:alnum:]]*#upload_max_filesize = 32M#g' /etc/p
 #max_allowed_packet=64M
 # need for long php-cli runs
 sed -i 's#wait_timeout=[[:digit:]]*#wait_timeout=1800#g' /etc/my.cnf
+sed -i 's#interactive_timeout=[[:digit:]]*#interactive_timeout=1800#g' /etc/my.cnf
 
 # additional ngixn config about timeouts and other limits
 wget "$WEBSOURCE/nginx.conf" -O nginx.conf
