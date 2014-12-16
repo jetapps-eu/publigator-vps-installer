@@ -102,6 +102,12 @@ sed -i 's#display_errors = Off#display_errors = On#g' /etc/php.ini
 sed -i 's#; max_input_vars = [[:digit:]]*#max_input_vars = 10000#g' /etc/php.ini
 sed -i 's#upload_max_filesize = [[:alnum:]]*#upload_max_filesize = 32M#g' /etc/php.ini
 
+# MySQL options
+#wait_timeout=1800
+#max_allowed_packet=64M
+# need for long php-cli runs
+sed -i 's#wait_timeout=[[:digit:]]*#wait_timeout=1800#g' /etc/my.cnf
+
 # additional ngixn config about timeouts and other limits
 wget "$WEBSOURCE/nginx.conf" -O nginx.conf
 cp nginx.conf "/home/admin/conf/web/nginx.$DOMAIN.conf.limits"
