@@ -17,6 +17,13 @@ yum -y remove php-mysql
 # install mysqlnd
 yum -y --enablerepo=remi,remi-test install php-mysqlnd phpMyAdmin roundcubemail
 
+# recover configs
+#mv -f /etc/roundcubemail/db.inc.php.rpmsave /etc/roundcubemail/db.inc.php
+#mv -f /etc/roundcubemail/main.inc.php.rpmsave /etc/roundcubemail/main.inc.php
+mv -f /etc/phpMyAdmin/config.inc.php.rpmsave /etc/phpMyAdmin/config.inc.php
+mv -f /etc/httpd/conf.d/roundcubemail.conf.rpmsave /etc/httpd/conf.d/roundcubemail.conf
+mv -f /etc/httpd/conf.d/phpMyAdmin.conf.rpmsave /etc/httpd/conf.d/phpMyAdmin.conf
+
 # starting services
 service mysqld start
 service httpd start

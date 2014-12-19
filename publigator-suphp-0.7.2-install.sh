@@ -39,7 +39,10 @@ sed -i 's#;x-httpd-php54="php:/opt/php54/bin/php-cgi"#x-httpd-php54="php:/usr/bi
 
 if [ `uname -m` == "x86_64" ]; then archlib="lib64"; else archlib="lib"; fi
 
-cat>/etc/httpd/conf.d/php.conf<<EOF
+# save original php config
+mv /etc/httpd/conf.d/php.conf /etc/httpd/conf.d/php.conf.bak
+
+cat>/etc/httpd/conf.d/php.suphp.conf<<EOF
 LoadModule  suphp_module  /usr/$archlib/httpd/modules/mod_suphp.so
 <IfModule mod_suphp.c>
 <FilesMatch "\.(inc|php|php3|php4|php5|php6|phtml|phps)$">
