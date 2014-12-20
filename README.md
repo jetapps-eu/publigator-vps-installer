@@ -37,7 +37,7 @@ When `step-1` will finished, copy next `step-2` command and run:
 curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-step2.sh && bash publigator-install-step2.sh
 ```
 
-By default the PHP via as **mod_ruid2**. If you need **SuPHP** or **Fcgid** mode, check **same** steps below.
+By default PHP working via as **mod_ruid2**. If you need **SuPHP** or **Fcgid** mode, check **same** steps below.
 
 **Or** `step-2` with **SuPHP**:
 
