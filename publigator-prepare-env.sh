@@ -136,3 +136,38 @@ chmod 640 "/home/admin/conf/web/snginx.$DOMAIN.conf.limits"
 service mysqld restart
 service httpd restart
 service nginx reload
+
+
+# ============================================
+# Services monitoring
+
+yum -y install monit
+chkconfig monit on
+
+#egrep -v "^#" /etc/monit.conf
+
+wget http://c.vestacp.com/0.9.8/rhel/monit/vesta-nginx.conf -O /etc/monit.d/vesta-nginx.conf
+wget http://c.vestacp.com/0.9.8/rhel/monit/vesta-php.conf -O /etc/monit.d/vesta-php.conf
+wget http://c.vestacp.com/0.9.8/rhel/monit/nginx.conf -O /etc/monit.d/nginx.conf
+wget http://c.vestacp.com/0.9.8/rhel/monit/httpd.conf -O /etc/monit.d/httpd.conf
+wget http://c.vestacp.com/0.9.8/rhel/monit/mysql.conf -O /etc/monit.d/mysql.conf
+wget http://c.vestacp.com/0.9.8/rhel/monit/exim.conf -O /etc/monit.d/exim.conf
+wget http://c.vestacp.com/0.9.8/rhel/monit/dovecot.conf -O /etc/monit.d/dovecot.conf
+wget http://c.vestacp.com/0.9.8/rhel/monit/sshd.conf -O /etc/monit.d/sshd.conf
+
+service monit start
+service monit restart
+
+# ============================================
+# Changing from vsftpd to proftpd
+
+#service vsftpd stop
+#chkconfig vsftpd off
+#yum -y install proftpd
+#wget http://c.vestacp.com/0.9.8/rhel/proftpd.conf -O /etc/proftpd.conf
+#sed -i "s/vsftpd/proftpd/" /usr/local/vesta/conf/vesta.conf
+#chkconfig proftpd on
+#service proftpd start
+# removing vsftpd
+#yum -y remove vsftpd
+
