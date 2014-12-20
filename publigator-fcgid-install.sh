@@ -20,26 +20,26 @@ fi
 
 vesta_templates='/usr/local/vesta/data/templates/web'
 
-wget "$WEBSOURCE/fcgid/apache_phpfcgid.tpl" -O "$vesta_templates/httpd/pbl_phpfcgid.tpl"
-wget "$WEBSOURCE/fcgid/apache_phpfcgid.stpl" -O "$vesta_templates/httpd/pbl_phpfcgid.stpl"
+wget --no-check-certificate "$WEBSOURCE/fcgid/apache_phpfcgid.tpl" -O "$vesta_templates/httpd/pbl_phpfcgid.tpl"
+wget --no-check-certificate "$WEBSOURCE/fcgid/apache_phpfcgid.stpl" -O "$vesta_templates/httpd/pbl_phpfcgid.stpl"
 
 chown admin:admin "$vesta_templates/httpd/pbl_phpfcgid"*
 chmod a+x "$vesta_templates/httpd/pbl_phpfcgid"*
 
-wget "$WEBSOURCE/fcgid/nginx_phpfcgid.tpl" -O "$vesta_templates/nginx/pbl_phpfcgid.tpl"
-wget "$WEBSOURCE/fcgid/nginx_phpfcgid.stpl" -O "$vesta_templates/nginx/pbl_phpfcgid.stpl"
+wget --no-check-certificate "$WEBSOURCE/fcgid/nginx_phpfcgid.tpl" -O "$vesta_templates/nginx/pbl_phpfcgid.tpl"
+wget --no-check-certificate "$WEBSOURCE/fcgid/nginx_phpfcgid.stpl" -O "$vesta_templates/nginx/pbl_phpfcgid.stpl"
 
 chown admin:admin "$vesta_templates/nginx/pbl_phpfcgid"*
 chmod a+x "$vesta_templates/nginx/pbl_phpfcgid"*
 
 # add the new package for VestaCP
-wget "$WEBSOURCE/fcgid/phpfcgid.pkg" -O  /usr/local/vesta/data/packages/phpfcgid.pkg
+wget --no-check-certificate "$WEBSOURCE/fcgid/phpfcgid.pkg" -O  /usr/local/vesta/data/packages/phpfcgid.pkg
 
 # save original fcgid starter
 mv "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter" "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter.orig"
 
 # custom fcgid starter
-wget "$WEBSOURCE/fcgid/fcgi-starter" -O "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter"
+wget --no-check-certificate "$WEBSOURCE/fcgid/fcgi-starter" -O "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter"
 
 chmod a+x "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter"
 chmod go-r "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter"

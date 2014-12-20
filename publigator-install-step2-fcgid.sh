@@ -26,7 +26,7 @@ cd $INSTALLDIR
 printf "\nPreparing Environment...\n\n"
 sleep 5
 
-wget "$WEBSOURCE/publigator-prepare-env.sh" -O publigator-prepare-env.sh
+wget --no-check-certificate "$WEBSOURCE/publigator-prepare-env.sh" -O publigator-prepare-env.sh
 bash publigator-prepare-env.sh
 
 # remove preloaded packages
@@ -51,13 +51,13 @@ v-restart-web
 printf "\nInstalling Fcgid...\n\n"
 sleep 5
 
-wget "$WEBSOURCE/publigator-fcgid-install.sh" -O publigator-fcgid-install.sh
+wget --no-check-certificate "$WEBSOURCE/publigator-fcgid-install.sh" -O publigator-fcgid-install.sh
 bash publigator-fcgid-install.sh
 
 printf "\nPreparing Publigator for install...\n\n"
 sleep 5
 
-wget "$WEBSOURCE/publigator-prepare-script.sh" -O publigator-prepare-script.sh
+wget --no-check-certificate "$WEBSOURCE/publigator-prepare-script.sh" -O publigator-prepare-script.sh
 bash publigator-prepare-script.sh
 
 printf "\nDone! Now you can go to http://$DOMAIN/ for install Publigator.\n\n"

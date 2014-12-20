@@ -56,8 +56,8 @@ if [ ! -e '/usr/bin/wget' ]; then
     fi
 fi
 
-wget "$WEBSOURCE/create-swapfile.sh" -O create-swapfile.sh
+wget --no-check-certificate "$WEBSOURCE/create-swapfile.sh" -O create-swapfile.sh
 bash create-swapfile.sh
 
-wget "$WEBSOURCE/publigator-install-cp.sh" -O publigator-install-cp.sh
+wget --no-check-certificate "$WEBSOURCE/publigator-install-cp.sh" -O publigator-install-cp.sh
 bash publigator-install-cp.sh

@@ -9,20 +9,20 @@ cd $INSTALLDIR
 
 vesta_templates='/usr/local/vesta/data/templates/web'
 
-wget "$WEBSOURCE/suphp/apache_suphp.tpl" -O "$vesta_templates/httpd/suphp.tpl"
-wget "$WEBSOURCE/suphp/apache_suphp.stpl" -O "$vesta_templates/httpd/suphp.stpl"
+wget --no-check-certificate "$WEBSOURCE/suphp/apache_suphp.tpl" -O "$vesta_templates/httpd/suphp.tpl"
+wget --no-check-certificate "$WEBSOURCE/suphp/apache_suphp.stpl" -O "$vesta_templates/httpd/suphp.stpl"
 
 chown admin:admin "$vesta_templates/httpd/suphp"*
 chmod a+x "$vesta_templates/httpd/suphp"*
 
-wget "$WEBSOURCE/suphp/nginx_suphp.tpl" -O "$vesta_templates/nginx/suphp.tpl"
-wget "$WEBSOURCE/suphp/nginx_suphp.stpl" -O "$vesta_templates/nginx/suphp.stpl"
+wget --no-check-certificate "$WEBSOURCE/suphp/nginx_suphp.tpl" -O "$vesta_templates/nginx/suphp.tpl"
+wget --no-check-certificate "$WEBSOURCE/suphp/nginx_suphp.stpl" -O "$vesta_templates/nginx/suphp.stpl"
 
 chown admin:admin "$vesta_templates/nginx/suphp"*
 chmod a+x "$vesta_templates/nginx/suphp"*
 
 # suphp package
-wget "$WEBSOURCE/suphp/suphp.pkg" -O  /usr/local/vesta/data/packages/suphp.pkg
+wget --no-check-certificate "$WEBSOURCE/suphp/suphp.pkg" -O  /usr/local/vesta/data/packages/suphp.pkg
 
 yum -y install httpd-devel
 
@@ -35,7 +35,7 @@ make -j12 && make install
 
 cd $INSTALLDIR
 
-wget "$WEBSOURCE/suphp/suphp.conf" -O /etc/suphp.conf
+wget --no-check-certificate "$WEBSOURCE/suphp/suphp.conf" -O /etc/suphp.conf
 sed -i 's#;x-httpd-php54="php:/opt/php54/bin/php-cgi"#x-httpd-php54="php:/usr/bin/php-cgi"#g' /etc/suphp.conf
 
 if [ `uname -m` == "x86_64" ]; then archlib="lib64"; else archlib="lib"; fi

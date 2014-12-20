@@ -121,7 +121,7 @@ sed -i 's#wait_timeout=[[:digit:]]*#wait_timeout=3600#g' /etc/my.cnf
 sed -i 's#interactive_timeout=[[:digit:]]*#interactive_timeout=3600#g' /etc/my.cnf
 
 # additional ngixn config about timeouts and other limits
-wget "$WEBSOURCE/nginx.conf" -O nginx.conf
+wget --no-check-certificate "$WEBSOURCE/nginx.conf" -O nginx.conf
 
 cp nginx.conf "/home/admin/conf/web/nginx.$DOMAIN.conf.limits"
 cp nginx.conf "/home/admin/conf/web/snginx.$DOMAIN.conf.limits"

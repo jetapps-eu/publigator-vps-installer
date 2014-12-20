@@ -39,7 +39,7 @@ v-delete-database admin admin_default
 v-add-database admin "$DATABASE" "$DATABASE_USER" "$DATABASE_PASSWORD"
 
 # mysql config for microserver
-# wget "$WEBSOURCE/my-micro.cnf"
+# wget --no-check-certificate "$WEBSOURCE/my-micro.cnf"
 # mv -f my-micro.cnf /etc/my.cnf
 
 # Import dump...
