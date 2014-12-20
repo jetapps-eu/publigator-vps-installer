@@ -8,12 +8,14 @@ source "$CONFIGPATH/publigator-config.sh"
 
 echo
 echo
-echo "Install directory: $INSTALLDIR" 
+echo "Install directory: $INSTALLDIR"
+echo
+echo "Hostname: $SERVNAME"
+echo "Email: $EMAIL"
+echo
 echo "Domain: $DOMAIN"
 echo "Domain IP: $DOMAINIP"
-echo "Email: $EMAIL"
-echo "Hostname: $HOSTNAME"
-
+echo
 echo "Database: admin_$DATABASE"
 echo "Database user: admin_$DATABASE_USER"
 echo "Database user password: $DATABASE_PASSWORD"
