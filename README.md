@@ -37,6 +37,26 @@ When `step-1` will finished, copy next command and run:
 curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-step2.sh && bash publigator-install-step2.sh
 ```
 
+By default the PHP via as **mod_ruid2**. If you need **SuPHP** or **Fcgid** mode, check **same** steps below.
+
+**Or** `step-2` with **SuPHP**:
+
+```
+curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-step2-suphp.sh && bash publigator-install-step2-suphp.sh
+```
+
+Will be installed **SuPHP** with dedicated hosting package `suphp` and  special templates `suphp` for Apache and Nginx.  
+
+**Or** `step-2` with **Fcgid**:
+
+```
+curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-step2-fcgid.sh && bash publigator-install-step2-fcgid.sh
+```
+
+Will be installed **Fcgid** with dedicated hosting package `phpfcgid` and  special templates `pbl_phpfcgid` for Apache and Nginx.
+
+==========
+
 When system will ask you some data like paths for components, just press `enter`. You have to wait the actions will be finished.
 
 Next you will see URL and database credentials. Copy it and go to showed URL. You will be able to see Publigator installer system.
