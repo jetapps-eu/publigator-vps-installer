@@ -17,10 +17,10 @@ gen_pass() {
 read -p 'Please enter valid email address: ' email
 
 # Define server hostname
-read -p "Please enter hostname ["$(hostname)"]: " hostname
+read -p "Please enter hostname ["$(hostname)"]: " servname
 
-if [ -z "$hostname" ]; then
-    hostname=$(hostname)
+if [ -z "$servname" ]; then
+    servname=$(hostname)
 fi
 
 # Define domain
@@ -58,7 +58,7 @@ fi
 
 # sed -i "s#;{TPL}#$var#g" publigator-config.sh
 
-sed -i "s#__HOSTNAME__#${hostname}#g" "$CONFIGPATH/publigator-config.sh"
+sed -i "s#__HOSTNAME__#${servname}#g" "$CONFIGPATH/publigator-config.sh"
 sed -i "s#__EMAIL__#${email}#g" "$CONFIGPATH/publigator-config.sh"
 
 sed -i "s#__DOMAIN__#${domain}#g" "$CONFIGPATH/publigator-config.sh"
