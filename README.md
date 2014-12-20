@@ -31,7 +31,7 @@ The installed will ask you about your e-mail for send you access info for [Vesta
 
 Also it will ask you about hostname, about domain for Publigator, IP of the VPS, credentials for the DB.
 
-When `step-1` will finished, copy next command and run: 
+When `step-1` will finished, copy next `step-2` command and run: 
 
 ```
 curl -O https://raw.githubusercontent.com/jetapps-eu/publigator-vps-installer/master/publigator-install-step2.sh && bash publigator-install-step2.sh
