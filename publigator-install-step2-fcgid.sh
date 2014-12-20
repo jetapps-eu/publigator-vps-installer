@@ -48,6 +48,12 @@ v-add-web-domain-proxy admin "$DOMAIN" default
 
 v-restart-web
 
+printf "\nInstalling Fcgid...\n\n"
+sleep 5
+
+wget "$WEBSOURCE/publigator-fcgid-install.sh" -O publigator-fcgid-install.sh
+bash publigator-fcgid-install.sh
+
 printf "\nPreparing Publigator for install...\n\n"
 sleep 5
 

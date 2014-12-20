@@ -7,7 +7,7 @@ source "$CONFIGPATH/publigator-config.sh"
 cd $INSTALLDIR
 # ===========================================
 
-pblfile='publigator-0.2.0-beta.zip'
+pblfile='publigator-0.2.3-beta.zip'
 
 # next need to download Publigator (latest) to /home/admin/web/publigator
 wget -N "http://dist.publigator.com/$pblfile"
@@ -24,23 +24,6 @@ find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 644 {} \;
 
 cd $INSTALLDIR
-
-# old packages
-v-delete-user-package palegreen
-v-delete-user-package gainsboro
-v-delete-user-package slategrey
-
-# change package for admin
-v-change-user-package admin suphp
-
-# remove default.domain for admin
-v-delete-domain admin default.domain
-
-# add new domain for Publigator (with IP and restart-web)
-v-add-web-domain admin "$DOMAIN" "$DOMAINIP" yes
-
-v-add-web-domain-proxy admin "$DOMAIN" suphp
-v-restart-web
 
 # move old public_html to public_html.orig
 mv "/home/admin/web/$DOMAIN/public_html" "/home/admin/web/$DOMAIN/public_html.orig"

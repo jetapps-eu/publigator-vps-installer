@@ -29,11 +29,30 @@ sleep 5
 wget "$WEBSOURCE/publigator-prepare-env.sh" -O publigator-prepare-env.sh
 bash publigator-prepare-env.sh
 
-#printf "\nInstalling SuPHP...\n\n"
-#sleep 5
+# remove preloaded packages
+v-delete-user-package palegreen
+v-delete-user-package gainsboro
+v-delete-user-package slategrey
 
-#wget "$WEBSOURCE/publigator-suphp-0.7.2-install.sh" -O publigator-suphp-0.7.2-install.sh
-#bash publigator-suphp-0.7.2-install.sh
+# change package for admin
+v-change-user-package admin default
+
+# remove default.domain for admin
+v-delete-domain admin default.domain
+
+# add new specified domain (with IP and restart-web)
+v-add-web-domain admin "$DOMAIN" "$DOMAINIP" yes
+
+# add proxy support
+v-add-web-domain-proxy admin "$DOMAIN" default
+
+v-restart-web
+
+printf "\nInstalling SuPHP...\n\n"
+sleep 5
+
+wget "$WEBSOURCE/publigator-suphp-0.7.2-install.sh" -O publigator-suphp-0.7.2-install.sh
+bash publigator-suphp-0.7.2-install.sh
 
 printf "\nPreparing Publigator for install...\n\n"
 sleep 5

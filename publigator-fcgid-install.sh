@@ -20,33 +20,20 @@ fi
 
 vesta_templates='/usr/local/vesta/data/templates/web'
 
-wget "$WEBSOURCE/fcgid/pbl_phpfcgid.tpl" -O "$vesta_templates/httpd/pbl_phpfcgid.tpl"
-wget "$WEBSOURCE/fcgid/pbl_phpfcgid.stpl" -O "$vesta_templates/httpd/pbl_phpfcgid.stpl"
+wget "$WEBSOURCE/fcgid/apache_phpfcgid.tpl" -O "$vesta_templates/httpd/pbl_phpfcgid.tpl"
+wget "$WEBSOURCE/fcgid/apache_phpfcgid.stpl" -O "$vesta_templates/httpd/pbl_phpfcgid.stpl"
 
 chown admin:admin "$vesta_templates/httpd/pbl_phpfcgid"*
 chmod a+x "$vesta_templates/httpd/pbl_phpfcgid"*
 
-# need to create new package for VestaCP
-wget "$WEBSOURCE/fcgid/phpfcgid.pkg" -O phpfcgid.pkg
-v-add-user-package ./ phpfcgid
+wget "$WEBSOURCE/fcgid/nginx_phpfcgid.tpl" -O "$vesta_templates/nginx/pbl_phpfcgid.tpl"
+wget "$WEBSOURCE/fcgid/nginx_phpfcgid.stpl" -O "$vesta_templates/nginx/pbl_phpfcgid.stpl"
 
-# params for fcgid
-#echo -e "<IfModule mod_fcgid.c>
-#FcgidBusyTimeout 1800
-#FcgidIdleTimeout 1800
-#FcgidIOTimeout   1800
-#FcgidMaxRequestLen 104857600
-#FcgidMaxRequestInMem 128000000
-#FcgidMaxRequestsPerProcess 1000
-#</IfModule>" > "/home/admin/conf/web/httpd.$DOMAIN.conf.fcgid"
+chown admin:admin "$vesta_templates/nginx/pbl_phpfcgid"*
+chmod a+x "$vesta_templates/nginx/pbl_phpfcgid"*
 
-#cp "/home/admin/conf/web/httpd.$DOMAIN.conf.fcgid" "/home/admin/conf/web/shttpd.$DOMAIN.conf.fcgid"
-
-#chown root:admin "/home/admin/conf/web/httpd.$DOMAIN.conf.fcgid"
-#chown root:admin "/home/admin/conf/web/shttpd.$DOMAIN.conf.fcgid"
-
-#chmod 640 "/home/admin/conf/web/httpd.$DOMAIN.conf.fcgid"
-#chmod 640 "/home/admin/conf/web/shttpd.$DOMAIN.conf.fcgid"
+# add the new package for VestaCP
+wget "$WEBSOURCE/fcgid/phpfcgid.pkg" -O  /usr/local/vesta/data/packages/phpfcgid.pkg
 
 # save original fcgid starter
 mv "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter" "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter.orig"
@@ -58,5 +45,13 @@ chmod a+x "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter"
 chmod go-r "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter"
 chown admin:admin "/home/admin/web/$DOMAIN/cgi-bin/fcgi-starter"
 
+# change package for admin
+v-change-user-package admin phpfcgid
+v-change-web-domain-proxy-tpl admin "$DOMAIN" pbl_phpfcgid
+v-change-web-domain-tpl admin "$DOMAIN" pbl_phpfcgid
+v-restart-web
+
+sleep 5
+
+service nginx reload
 service httpd restart
-service mysqld restart

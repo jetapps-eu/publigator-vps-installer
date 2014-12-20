@@ -11,14 +11,15 @@ vesta_templates='/usr/local/vesta/data/templates/web'
 
 wget "$WEBSOURCE/suphp/apache_suphp.tpl" -O "$vesta_templates/httpd/suphp.tpl"
 wget "$WEBSOURCE/suphp/apache_suphp.stpl" -O "$vesta_templates/httpd/suphp.stpl"
+
+chown admin:admin "$vesta_templates/httpd/suphp"*
+chmod a+x "$vesta_templates/httpd/suphp"*
+
 wget "$WEBSOURCE/suphp/nginx_suphp.tpl" -O "$vesta_templates/nginx/suphp.tpl"
 wget "$WEBSOURCE/suphp/nginx_suphp.stpl" -O "$vesta_templates/nginx/suphp.stpl"
 
 chown admin:admin "$vesta_templates/nginx/suphp"*
 chmod a+x "$vesta_templates/nginx/suphp"*
-
-chown admin:admin "$vesta_templates/httpd/suphp"*
-chmod a+x "$vesta_templates/httpd/suphp"*
 
 # suphp package
 wget "$WEBSOURCE/suphp/suphp.pkg" -O  /usr/local/vesta/data/packages/suphp.pkg
@@ -68,6 +69,12 @@ EOF
 
 # as php runs as cgi
 sed -i 's#Timeout 30#Timeout 900#g' /etc/httpd/conf/httpd.conf
+
+# change package for admin
+v-change-user-package admin suphp
+v-change-web-domain-proxy-tpl admin "$DOMAIN" suphp
+v-change-web-domain-tpl admin "$DOMAIN" suphp
+v-restart-web
 
 sleep 5
 

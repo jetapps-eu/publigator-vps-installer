@@ -100,24 +100,29 @@ cp ./modules/opendkim.so /usr/lib64/php/modules/
 echo "extension=opendkim.so" > /etc/php.d/opendkim.ini
 
 # php.ini options
-sed -i 's#;realpath_cache_size = [[:alnum:]]*#realpath_cache_size = 1M#g' /etc/php.ini
-sed -i 's#;realpath_cache_ttl = [[:digit:]]*#realpath_cache_ttl = 120#g' /etc/php.ini
-sed -i 's#max_execution_time = [[:digit:]]*#max_execution_time = 300#g' /etc/php.ini
-sed -i 's#post_max_size = [[:alnum:]]*#post_max_size = 32M#g' /etc/php.ini
-sed -i 's#;default_charset = "UTF-8"#default_charset = "UTF-8"#g' /etc/php.ini
-sed -i 's#display_errors = Off#display_errors = On#g' /etc/php.ini
-sed -i 's#; max_input_vars = [[:digit:]]*#max_input_vars = 10000#g' /etc/php.ini
-sed -i 's#upload_max_filesize = [[:alnum:]]*#upload_max_filesize = 32M#g' /etc/php.ini
+sed -i 's#;realpath_cache_size[[:blank:]]*=[[:blank:]]*[[:alnum:]]*#realpath_cache_size = 1M#g' /etc/php.ini
+sed -i 's#;realpath_cache_ttl[[:blank:]]*=[[:blank:]]*[[:digit:]]*#realpath_cache_ttl = 120#g' /etc/php.ini
+sed -i 's#max_execution_time[[:blank:]]*=[[:blank:]]*[[:digit:]]*#max_execution_time = 900#g' /etc/php.ini
+sed -i 's#post_max_size[[:blank:]]*=[[:blank:]]*[[:alnum:]]*#post_max_size = 32M#g' /etc/php.ini
+sed -i 's#;default_charset[[:blank:]]*=[[:blank:]]*"UTF-8"#default_charset = "UTF-8"#g' /etc/php.ini
+sed -i 's#display_errors[[:blank:]]*=[[:blank:]]*Off#display_errors = On#g' /etc/php.ini
+sed -i 's#; max_input_vars[[:blank:]]*=[[:blank:]]*[[:digit:]]*#max_input_vars = 10000#g' /etc/php.ini
+sed -i 's#upload_max_filesize[[:blank:]]*=[[:blank:]]*[[:alnum:]]*#upload_max_filesize = 32M#g' /etc/php.ini
+
+sed -i 's#disable_functions[[:blank:]]*=.*#disable_functions = #g' /etc/php.ini
+sed -i 's#disable_classes[[:blank:]]*=.*#disable_classes = #g' /etc/php.ini
+sed -i 's#open_basedir[[:blank:]]*=.*#;open_basedir = #g' /etc/php.ini
 
 # MySQL options
 #wait_timeout=1800
 #max_allowed_packet=64M
 # need for long php-cli runs
-sed -i 's#wait_timeout=[[:digit:]]*#wait_timeout=1800#g' /etc/my.cnf
-sed -i 's#interactive_timeout=[[:digit:]]*#interactive_timeout=1800#g' /etc/my.cnf
+sed -i 's#wait_timeout=[[:digit:]]*#wait_timeout=3600#g' /etc/my.cnf
+sed -i 's#interactive_timeout=[[:digit:]]*#interactive_timeout=3600#g' /etc/my.cnf
 
 # additional ngixn config about timeouts and other limits
 wget "$WEBSOURCE/nginx.conf" -O nginx.conf
+
 cp nginx.conf "/home/admin/conf/web/nginx.$DOMAIN.conf.limits"
 cp nginx.conf "/home/admin/conf/web/snginx.$DOMAIN.conf.limits"
 
