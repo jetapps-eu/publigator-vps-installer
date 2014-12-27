@@ -16,7 +16,7 @@ mkdir /home/admin/web/publigator
 mv "$pblfile" /home/admin/web/publigator/
 cd /home/admin/web/publigator
 
-unzip "$pblfile"
+unzip -q "$pblfile"
 rm -f "$pblfile"
 
 # set php (cli) binary
