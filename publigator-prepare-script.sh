@@ -7,7 +7,7 @@ source "$CONFIGPATH/publigator-config.sh"
 cd $INSTALLDIR
 # ===========================================
 
-pblfile='publigator-0.2.6-beta.zip'
+pblfile='publigator-0.2.7-beta.zip'
 
 # next need to download Publigator (latest) to /home/admin/web/publigator
 wget -N "http://dist.publigator.com/$pblfile"
@@ -18,6 +18,9 @@ cd /home/admin/web/publigator
 
 unzip "$pblfile"
 rm -f "$pblfile"
+
+# set php (cli) binary
+echo $(which php) > .PHP_BINARY
 
 chown -R admin:admin /home/admin/web/publigator
 find . -type d -exec chmod 755 {} \;
