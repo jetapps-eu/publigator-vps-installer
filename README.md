@@ -63,7 +63,7 @@ Next you will see URL and database credentials. Copy it and go to showed URL. Yo
 
 # Special instructions for RunAbove
 
-After you’ll created a instance, and login as `admin` via SSH, please run following commands:
+After you’ll created an instance, and login as `admin` via SSH, please run following commands:
 
 ```bash
 sudo su -
