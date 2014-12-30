@@ -114,7 +114,7 @@ nameserver 8.8.4.4
 search
 ```
 
-## How to install cron-task
+## How to install the cron-task
 
 You can install cron-task from `root` SSH with these commands:
 
