@@ -113,3 +113,21 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 search
 ```
+
+## How to install cron-task
+
+You can install cron-task from `root` SSH with these commands:
+
+```
+export EDITOR=nano
+export TERM=xterm-color
+crontab -u admin -e
+```
+
+You should add the new row with command according your system. In common case (of using this installer) it will be:
+
+```
+* * * * * /usr/bin/php /home/admin/web/publigator/console job-manager2 > /dev/null 2>&1
+```
+
+After editing press `CTRL+O` to save file and `CTRL+X` to exit.
