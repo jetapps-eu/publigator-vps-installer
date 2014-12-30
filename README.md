@@ -61,6 +61,39 @@ When system will ask you some data like paths for components, just press `enter`
 
 Next you will see URL and database credentials. Copy it and go to showed URL. You will be able to see Publigator installer system.
 
+# Special instructions for RunAbove
+
+After you’ll create a instance, and login as `admin` via SSH, please run following commands:
+
+```bash
+sudo su -
+```
+
+Next set password for the `root`.
+
+```bash
+passwd
+```
+
+Next copy SSH keys:
+
+```bash
+cp -r /root/.ssh /root/.ssh.orig
+rm -rf /root/.ssh
+cp -r /home/admin/.ssh /root/
+exit
+exit
+```
+
+Now login as `root` via SSH (with login/password or login and SSH key). And run commands:
+
+```
+userdel admin
+rm -rf /home/admin
+```
+
+Now you can run `step-1` of the installer. Please carefully specify your hostname and IP address of your VPS (instead of 127.0.0.1).
+
 ## Issues
 
 1. Wrong /etc/resolv.conf on firstvds.ru VPS images. You should change that file (also see [Vim cheatsheet](http://vim.rtorr.com/) ):

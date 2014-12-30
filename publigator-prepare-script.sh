@@ -16,6 +16,8 @@ mkdir /home/admin/web/publigator
 mv "$pblfile" /home/admin/web/publigator/
 cd /home/admin/web/publigator
 
+echo "Extracting file..."
+
 unzip -q "$pblfile"
 rm -f "$pblfile"
 
