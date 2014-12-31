@@ -78,8 +78,7 @@ passwd
 Next copy SSH keys:
 
 ```bash
-cp -r /root/.ssh /root/.ssh.orig
-rm -rf /root/.ssh
+mv /root/.ssh /root/.ssh.orig
 cp -r /home/admin/.ssh /root/
 exit
 exit
@@ -116,7 +115,7 @@ search
 
 ## How to install the cron-task
 
-You can install cron-task from `root` SSH with these commands:
+You can install the cron-task from `root` SSH with these commands:
 
 ```
 export EDITOR=nano
