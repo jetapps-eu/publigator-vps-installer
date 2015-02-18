@@ -7,7 +7,7 @@ source "$CONFIGPATH/publigator-config.sh"
 cd $INSTALLDIR
 # ===========================================
 
-pblfile='publigator-0.2.15-beta.zip'
+pblfile='publigator-0.2.16-beta.zip'
 
 # next need to download Publigator (latest) to /home/admin/web/publigator
 wget -N "http://dist.publigator.com/$pblfile"
