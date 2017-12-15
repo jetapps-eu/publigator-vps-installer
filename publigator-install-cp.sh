@@ -16,10 +16,10 @@ rpm -ivh epel-release-6-8.noarch.rpm
 # sudo rpm -Uvh ius-release*.rpm
 
 # Add RPMForge repo
-wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm -O rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
-rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
-rpm -K rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
-rpm -ivh rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+#wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm -O rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+#rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+#rpm -K rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+#rpm -ivh rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 
 # Try to install `htop`
 if [ ! -e '/usr/bin/htop' ]; then
